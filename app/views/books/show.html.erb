@@ -22,30 +22,32 @@
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
             <% end %>
 
-            <td>
-              <p>コメント件数：<%= @book.book_comments.count %></p>
-            </td>
-            <td>
-              <%= render 'favorites/favorites', book: @book %>
-            </td>
+            <td>コメント件数：<%= @book.book_comments.count %></td>
+            <td> <%= render 'favorites/favorites', book: @book %></td>
 
         </tr>
       </table>
       <div>
-
-           <td>
+<table>
+  <tbody>
            <% @book.book_comments.each do |book_comment| %>
-        <p><%= image_tag book_comment.user.get_profile_image(100,100) %></p>
-           </td>
+       <tr>
            <td>
+           <%= image_tag book_comment.user.get_profile_image(100,100) %><br>
             <%= book_comment.user.name %>
            </td>
+           <td><%= book_comment.comment %></td>
            <td>
               <% if book_comment.user == current_user %>
-                <%= link_to "削除", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
+                <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete ,class: "btn btn-danger pull-right"%>
               <% end %>
            </td>
+
+       </tr>
           <% end %>
+
+  </tbody>
+</table>
 
       </div>
        <div>
