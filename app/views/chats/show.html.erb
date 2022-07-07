@@ -1,22 +1,29 @@
-<h2>"<%= @user %>"さんとのチャット</h2>
 
+    <h2><%= @user.name %>さんとのチャット</h2>
+             <div class="col-md-8 offset-md-1">
+                <%= form_with model: @chat do |f| %>
+                <%= f.text_field :message %>
+                <%= f.hidden_field :room_id %>
+                <%= f.submit %>
+                <% end %>
+             </div><br>
 
-<%= form_with model: @chat do |f| %>
-    <%= f.text_field :message %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit %>
-<% end %>
-<table>
+<table class="col-md-8 offset-md-1">
     <thead>
         <tr>
-            <td>投稿者名</td>
-            <td>投稿内容</td>
+
+            <td class="p-3 mb-2 bg-success text-white">送信者</td>
+            <td></td>
+
+            <td class="p-3 mb-2 bg-primary text-white">メッセージ</td>
+
         </tr>
     </thead>
     <tbody>
         <% @chats.each do |chat| %>
             <tr>
                 <td><%= chat.user.name %></td>
+                 <td></td>
                 <td><%= chat.message %></td>
             </tr>
         <% end %>

@@ -23,6 +23,8 @@ class User < ApplicationRecord
 # チャットルームで使用
   has_many :user_rooms
   has_many :chats
+  
+
 
 
 # フォローしたときの処理
@@ -46,6 +48,7 @@ class User < ApplicationRecord
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
+
 
 
 

@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
 #過去一週間でいいねの多い順に投稿
   has_many :favorited_users, through: :favorites, source: :user
+  has_many :week_favorites, -> { where(created_at: ((Time.current.at_end_of_day - 6.day).at_beginning_of_day)..(Time.current.at_end_of_day)) }, class_name: 'Favorite'
 
     #週刊ランキングについて
   def self.last_week # メソッド名は何でも良いです
