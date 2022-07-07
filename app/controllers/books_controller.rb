@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     @user = current_user
+    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   def create
@@ -27,6 +28,14 @@ class BooksController < ApplicationController
       render :index
     end
   end
+
+#週刊ランキングについて
+  def weekly_rank
+    @ranks = Cook.last_week
+  end
+
+
+
 
   def edit
     @book = Book.find(params[:id])

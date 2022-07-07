@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get  "home/about"=>"homes#about", as: "about"
   get  "searches" => "searches#search"
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update]do

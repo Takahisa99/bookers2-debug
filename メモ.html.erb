@@ -1,0 +1,11 @@
+
+#モデル作成に関するコマンド
+ rails g model PostComment comment:text user_id:integer post_image_id:integer
+
+rails g model Like
+
+
+
+ #データベースに反映するコマンド
+ rails db:migrate
+ rails db:migrate:status
