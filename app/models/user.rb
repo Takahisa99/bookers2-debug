@@ -23,7 +23,9 @@ class User < ApplicationRecord
 # チャットルームで使用
   has_many :user_rooms
   has_many :chats
-  
+
+#閲覧数
+  has_many :view_counts, dependent: :destroy
 
 
 

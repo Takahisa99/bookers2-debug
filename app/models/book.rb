@@ -14,6 +14,9 @@ class Book < ApplicationRecord
     Book.joins(:favorites).where(favorites: { created_at:　0.days.ago.prev_week..0.days.ago.prev_week(:sunday)}).group(:id).order("count(*) desc")
   end
 
+  #閲覧数
+  has_many :view_counts, dependent: :destroy
+
 
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
