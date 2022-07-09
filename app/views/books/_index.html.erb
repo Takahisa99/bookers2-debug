@@ -20,10 +20,10 @@
         <td class ="favorite-btn<%= book.id %>">
           <%= render 'favorites/favorite-btn', book: book %>
         </td>
-        <td>コメント件数：<%= book.book_comments.count %>
-          <% book.book_comments.each do |book_comment| %>
-          <% end %>
-        </td>
+
+          <td><%= render "book_comments/counter", book: book %></td>
+          <td class="view-count">閲覧数: <%= book.view_counts.count %></td>
+
       </tr>
     <% end %>
   </tbody>
