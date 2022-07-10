@@ -40,9 +40,6 @@ class BooksController < ApplicationController
     @ranks = Cook.last_week
   end
 
-
-
-
   def edit
     @book = Book.find(params[:id])
   end

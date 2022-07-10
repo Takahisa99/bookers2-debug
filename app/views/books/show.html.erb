@@ -39,7 +39,7 @@
       <div class = "book_comments">
        <%= render 'book_comments/index', book: @book %>
       </div>
-      <div >
+      <div>
        <%= form_with model: [@book, @book_comment], local: false do |f| %>
         <%= f.text_area :comment, rows: '5', class: "w-100" %>
         <%= f.submit "送信" %>

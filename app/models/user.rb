@@ -26,6 +26,9 @@ class User < ApplicationRecord
 
 #閲覧数
   has_many :view_counts, dependent: :destroy
+#グループ機能
+  has_many :group_users
+  has_many :groups, through: :group_users
 
 
 
