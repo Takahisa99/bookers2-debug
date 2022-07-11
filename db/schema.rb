@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2022_07_10_042557) do
   end
 
   create_table "group_users", force: :cascade do |t|
-    t.integer "group_id"
     t.integer "user_id"
+    t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_group_users_on_group_id"
@@ -82,10 +82,12 @@ ActiveRecord::Schema.define(version: 2022_07_10_042557) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
+    t.text "introduction"
+    t.string "image_id"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_groups_on_name", unique: true
   end
 
   create_table "relationships", force: :cascade do |t|

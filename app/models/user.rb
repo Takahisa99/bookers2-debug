@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
 
+
 #コメント機能の追加
   has_many :book_comments, dependent: :destroy
 #いいね機能の追加
@@ -29,7 +30,8 @@ class User < ApplicationRecord
 #グループ機能
   has_many :group_users
   has_many :groups, through: :group_users
-
+  #attachment :profile_image, destroy: false
+  has_many_attached :images
 
 
 # フォローしたときの処理
@@ -49,6 +51,7 @@ class User < ApplicationRecord
 
 
   has_one_attached :profile_image
+
 
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true

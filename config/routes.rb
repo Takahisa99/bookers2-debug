@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
  end
 
-  resources :groups, only: [:new, :create, :edit, :update]
 
 
+  resources :groups, except: [:destroy]
 
 
 
