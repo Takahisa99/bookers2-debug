@@ -58,8 +58,8 @@ gem 'image_processing', '~> 1.2'
 gem 'jquery-rails'
 
 
-gem 'detenv-rails'
+# gem 'detenv-rails'
 
-group :production do
-  gem 'mysql2'
-end
+# group :production do
+#   gem 'mysql2'
+# end
